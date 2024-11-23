@@ -37,15 +37,38 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
-![Screenshot 2024-11-07 130703](https://github.com/user-attachments/assets/48a0af80-59c5-4d01-8348-048df7af965e)
-![Screenshot 2024-11-07 130722](https://github.com/user-attachments/assets/513c3e51-6940-431c-bd82-eccb8ac2cc19)
+![Screenshot 2024-11-23 135820](https://github.com/user-attachments/assets/31c595c3-a297-43fc-aa15-64329d60e554)
+![Screenshot 2024-11-23 135745](https://github.com/user-attachments/assets/9075cf91-c50c-4ef5-8697-8b91e69b92b8)
+
 
 **Procedure**
-
+1. Type the program in Quartus software.
+ 2. Compile and run the program.
+ 3. Generate the RTL schematic and save the logic diagram.
+4. Create nodes for inputs and outputs to generate the timing diagram.
+ 5. For different input combinations generate the timing diagram.
 Write the detailed procedure here
 
 **Program:**
 ```
+ Full Adder
+
+module experiment42(sum,cout,a,b,cin);
+output sum;
+output cout;
+input a;
+input b;
+input cin;
+wire s1,c1,c2;
+xor (s1,a,b);
+and(c1,a,b);
+xor(sum,s1,cin);
+and(c2,s1,cin);
+or(cout,c2,c1);
+endmodule
+
+Full Substracter
+
 module experiment4(df,bo,a,b,bin);
 output df;
 output bo;
@@ -64,10 +87,14 @@ endmodule
 */
 
 **RTL Schematic**
-![Screenshot 2024-11-05 114359](https://github.com/user-attachments/assets/f7caeb5a-7ced-442f-8f65-2d1e90efa4f8)
+![Screenshot 2024-11-23 134805](https://github.com/user-attachments/assets/356ad962-e1d5-4ed2-b6f5-e347a2239e92)
+![Screenshot 2024-11-05 114359](https://github.com/user-attachments/assets/73f66aa3-00ce-4009-be75-e3bec2389ee4)
+
 
 **Output Timing Waveform**
-![Screenshot 2024-11-05 114652](https://github.com/user-attachments/assets/899301e7-8812-4cca-b0c3-91c576d9912c)
+![Screenshot 2024-11-23 134955](https://github.com/user-attachments/assets/c5cd24d0-268f-412e-9ca1-1e39fa15b507)
+
+![Screenshot 2024-11-05 114652](https://github.com/user-attachments/assets/cf181d1e-94a0-4b1d-9259-645933c7bb85)
 
 **Result:**
 
